@@ -15,11 +15,11 @@ indice_20=1
 '''
 2) Qual o indice do 400?
 '''
-indice_400="coloque o indice do 400 nessa variavel"
+indice_400=6
 '''
 3) Qual o indice do 5000?
 '''
-indice_5000="coloque o indice do 5000 nessa variavel"
+indice_5000=9
 '''
 Explicacao
 
@@ -47,6 +47,7 @@ EXERCICIO
    105
 '''
 def pega_indice(lista,indice):
+    return lista[indice]
     pass
 
 '''
@@ -96,6 +97,13 @@ EXERCICIO
 '''
 
 def busca_linear(lista, numero_a_procurar):
+    i = 0
+    while i < len(lista):
+        fotografa((i,lista[i]))
+        if lista[i] == numero_a_procurar:
+            return i          
+        i += 1    
+    return False
     pass
 
 '''
@@ -127,11 +135,11 @@ EXPLICACAO:
 
     Coloque os valores das médias nas variáveis a seguir
 '''
-media_1_5 = 0 #media de 1 a 5
-media_2_4 = 0
-media_3_3 = 0
+media_1_5 = 3 #media de 1 a 5
+media_2_4 = 3
+media_3_3 = 3
 
-media_9_5 = 0
+media_9_5 = 7
 
 
 '''
@@ -156,8 +164,8 @@ arredondada para baixo
 '''
 
 def media_arredondada(nro1, nro2):
+    return (nro1 + nro2)//2
     pass
-
 
 
 '''
@@ -199,6 +207,8 @@ O número da lista que está nesse indice é o 406.
 
 '''
 def numero_do_meio(lista,comeco,fim):
+    i = (comeco + fim) // 2
+    return lista[i]
     pass
 
 
@@ -226,7 +236,7 @@ Procurei no meio e achei o número 300.
 
 Coloque os 3 números na proxima variável, como no exemplo acima
 '''
-busca1=1,(1,1)
+busca1=20,(10,19)
 '''
 EXERCICIO
 Digamos que eu estou procurando o número 200.
@@ -236,7 +246,7 @@ Procurei no meio e achei o número 100.
 
 Coloque os 3 números na proxima variável, como no exemplo
 '''
-busca2=1,(1,1)
+busca2=23,(24,26)
 '''
 EXERCICIO
 Digamos que eu estou procurando o número 200.
@@ -246,7 +256,7 @@ Procurei no meio e achei o número 12.
 
 Coloque os 3 números na proxima variável, como no exemplo
 '''
-busca3=1,(1,1)
+busca3=25,(26,35)
 
 
 '''
@@ -275,7 +285,13 @@ dica: return comeco,final #so deixei isso aqui pra voce lembrar como retornar 2 
 '''
 
 def passo_da_busca_binaria(lista,procurando,menor_i,maior_i):
-    return comeco,final #so deixei isso aqui pra voce lembrar como retornar 2 numeros
+    n = (menor_i + maior_i)//2
+    if procurando == lista[n]:
+        return n
+    if lista[n] > procurando:
+        return menor_i, n-1
+    if lista[n] < procurando:
+        return n+1, maior_i
 
 '''
 EXPLICACAO
