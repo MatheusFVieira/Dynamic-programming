@@ -24,7 +24,7 @@ def string_balanceada(string):
             topo = pilha.pop()
             if not encaixa (topo, i):
                 return False
-    if pilha != []:
+    if pilha == []:
         return True
     else:
         return False
