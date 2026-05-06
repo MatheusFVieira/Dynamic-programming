@@ -28,6 +28,7 @@ Responda na forma de uma lista na variavel pilha1
 pilha1=[]
 # preencher essa variavel deve fazer o teste 001 passar
 
+
 '''
 EXERCICIO
 Novo exemplo. Temos a pilha vazia []
