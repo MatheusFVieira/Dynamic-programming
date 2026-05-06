@@ -17,7 +17,6 @@ def _aplica(nome):
         globals()[nome] = _GAB[nome]
 # fim do boilerplate
 
-
 '''
 EXPLICACAO
 
