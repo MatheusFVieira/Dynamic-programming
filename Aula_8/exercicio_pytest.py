@@ -412,7 +412,7 @@ pilhas apos cada operacao.
 
 1) Qual o valor de ? na pilha de maximos?
 '''
-max_apos_empilha_2 = 'coloque o valor aqui'
+max_apos_empilha_2 = '7'
 
 '''
     Continuando...
@@ -420,14 +420,14 @@ max_apos_empilha_2 = 'coloque o valor aqui'
 
 2) Qual o valor de ?
 '''
-max_apos_empilha_8 = 'coloque o valor aqui'
+max_apos_empilha_8 = '8'
 
 '''
     pop         -> pilha: [3, 7, 2],    maximos: [3, 7, ?]
 
 3) Qual o valor de ?
 '''
-max_apos_pop = 'coloque o valor aqui'
+max_apos_pop = '7'
 
 _aplica('max_apos_empilha_2'); _aplica('max_apos_empilha_8'); _aplica('max_apos_pop') #essa linha só serve para o professor testar o exercicio em casa. Pode ignorar ou deletar
 verifica(max_apos_empilha_2, '56929c1607626a1edbdaafb9c7f10c247e54fcbb20f1e3260f783011')
@@ -460,6 +460,11 @@ Cuidado: se maximos estiver vazia, o novo maximo e simplesmente x.
     [10, 10, 20]
 '''
 def empilha_com_max(pilha, maximos, x):
+    pilha.append(x)
+    if(maximos == [] or x > (maximos[-1])):
+        maximos.append(x)
+    else:
+        maximos.append(maximos[-1])
     pass
 _aplica('empilha_com_max') #essa linha só serve para o professor testar o exercicio em casa. Pode ignorar ou deletar
 
@@ -493,6 +498,9 @@ Faca uma funcao desempilha_com_max(pilha, maximos) que:
     [10, 10]
 '''
 def desempilha_com_max(pilha, maximos):
+    x = pilha.pop()
+    z = maximos.pop()
+    return x
     pass
 _aplica('desempilha_com_max') #essa linha só serve para o professor testar o exercicio em casa. Pode ignorar ou deletar
 
@@ -520,6 +528,25 @@ custe O(1).
     [15, 15, 15, 10]
 '''
 def getMax(operacoes):
+    pilha = []
+    lista = []
+    maximos = []
+    for op in operacoes:
+        partes = op.split(" ")
+        if int(partes[0]) == 1:
+            pilha.append(int(partes[1]))
+            if maximos == [] or int(partes[1]) > maximos[-1]:
+                maximos.append(int(partes[1]))
+            else:
+                maximos.append(maximos[-1])
+        elif int(partes[0]) == 2:
+            pilha.pop()
+            maximos.pop()
+        elif int(partes[0]) == 3:
+            if maximos != []:
+                x = maximos[-1]
+                lista.append(x)
+    return lista
     pass
 _aplica('getMax') #essa linha só serve para o professor testar o exercicio em casa. Pode ignorar ou deletar
 
