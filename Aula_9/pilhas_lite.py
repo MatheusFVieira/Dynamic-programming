@@ -25,7 +25,7 @@ Continuando o exemplo, tinhamos [1,2].
 Digamos que fazemos push(4), push(8). Como está a pilha? 
 Responda na forma de uma lista na variavel pilha1
 '''
-pilha1=[]
+pilha1=[1,2,4,8]
 # preencher essa variavel deve fazer o teste 001 passar
 
 
@@ -36,7 +36,7 @@ Fazemos push(9),push(8),pop(),push(7),push(6),pop().
 
 Como está a pilha? Responda na variavel pilha2.
 '''
-pilha2=[]
+pilha2=[9,7]
 # preencher essa variavel deve fazer o teste 002 passar
 
 '''
@@ -45,7 +45,7 @@ Novamente, começamos com uma pilha vazia.
 E se fizermos 
 push(9),push(8),push(7),push(6),pop(),pop(),pop() ?. 
 '''
-pilha3=[]
+pilha3=[9]
 # preencher essa variavel deve fazer o teste 003 passar
 
 '''
@@ -79,6 +79,7 @@ Crie uma função poe_pilha, que recebe uma pilha e um número
 e coloca o número no topo da pilha
 '''
 def poe_pilha(pilha,numero):
+    pilha.append(numero)
     pass #tire esse pass e escreva o codigo
 # fazer corretamente essa função deve  fazer o teste 010 passar -- sim, houve um pulo
 
@@ -90,6 +91,7 @@ estava no topo e retorna ele
 Exemplo: se a pilha era [1,2,3], a pilha deve ficar sendo [1,2] e a função deve retornar 3
 '''
 def tira_pilha(pilha):
+    return pilha.pop()
     pass #tire esse pass e escreva o codigo
 # fazer corretamente essa função deve  fazer o teste 011 passar
 
@@ -144,6 +146,10 @@ Faça uma função pilha_vazia que retorna:
      False se não está
 '''
 def pilha_vazia(pilha):
+    if pilha == []:
+        return True
+    else:
+        return False
     pass #tire esse pass e escreva o codigo
 # fazer corretamente essa função deve  fazer o teste 012 passar
 
