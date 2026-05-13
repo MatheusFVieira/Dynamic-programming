@@ -162,8 +162,8 @@ fatorial_101 = 1*2*3*4...*99*100*101
 
 '''
 
-fatorial_100 = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
-fatorial_101 = 'coloque o valor aqui'
+fatorial_100=93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+fatorial_101 = fatorial_100 * 101
 assert verifica(fatorial_101, 'fba13926f0f806fd20c8c39a3c77b39a791f6943a8afb4b9f625e6b9'), 'fatorial_101 incorreta'
 print('Exercicio fatorial terceirizacao 1: OK')
 
@@ -184,9 +184,9 @@ reusa a anterior — exatamente o que a funcao recursiva vai fazer
 quando ela mesma se chamar.
 '''
 fatorial_2 = 1*2
-fatorial_3 = 'coloque o valor aqui'
-fatorial_4 = 'coloque o valor aqui'
-fatorial_5 = 'coloque o valor aqui'
+fatorial_3 = fatorial_2*3
+fatorial_4 = fatorial_3*4
+fatorial_5 = fatorial_4*5
 
 
 
@@ -231,7 +231,10 @@ fatorial(1). Depois incremente com a chamada recursiva.
     120
 '''
 def fatorial(n):
-    pass
+    if n == 0 or n == 1:
+        return 1
+    fat = fatorial(n-1) * n
+    return fat
 
 # Bloco 1: casos base.
 # Esses sao os casos em que a funcao responde direto, sem se chamar.
