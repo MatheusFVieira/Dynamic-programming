@@ -1,4 +1,3 @@
-
 # === Helper de verificacao (pode ignorar) ===
 # A funcao `verifica` compara o seu valor com a resposta correta (que
 # fica escondida em formato de hash). Voce nao precisa entender ela -
@@ -22,14 +21,12 @@ def verifica(valor, codigo):
 
 import sys
 
-
 # === Helper para listas aninhadas (pode ignorar) ===
 # `eh_lista(x)` voce vai usar dentro da funcao soma_ll, na fase 7.
 
 def eh_lista(a):
     return isinstance(a, list)
 # fim do helper
-
 
 '''
 EXPLICACAO
@@ -51,7 +48,6 @@ Em cada fase, voce primeiro preenche VARIAVEIS que ilustram o passo
 recursivo (com calculo a mao), e so depois implementa a funcao. A
 ideia e voce ENTENDER o algoritmo antes de codar.
 '''
-
 
 # ===== FASE 1 - soma_n_primeiros =====
 
