@@ -100,19 +100,19 @@ funcao. Considere a `lista_para_inverter` = [10, 20, 30, 40] acima.
 1) Qual o PRIMEIRO elemento?
    Use uma EXPRESSAO Python: `lista_para_inverter[0]`.
 '''
-primeiro_elemento = 'coloque o valor aqui'
+primeiro_elemento = 10
 
 '''
 2) Quais sao os DEMAIS elementos (a partir do indice 1)?
    Use `lista_para_inverter[1:]`.
 '''
-demais_elementos = 'coloque o valor aqui'
+demais_elementos = [20, 30, 40]
 
 '''
 3) Agora terceirize: inverta A MAO os DEMAIS elementos (ou seja,
    inverta a lista [20, 30, 40]).
 '''
-demais_invertidos = 'coloque o valor aqui'
+demais_invertidos = [40, 30, 20]
 
 '''
 4) Pra montar a lista toda invertida, junte: os `demais_invertidos`
@@ -122,7 +122,7 @@ demais_invertidos = 'coloque o valor aqui'
    (repare nos colchetes: pra concatenar, o primeiro_elemento precisa
    virar uma lista de um elemento so)
 '''
-lista_invertida = 'coloque o valor aqui'
+lista_invertida = [40, 30, 20, 10]
 
 assert verifica(primeiro_elemento, '3aac67cd73162d439f9947d61357a1b62432f0ca84b7f435f4177a8c'), 'primeiro_elemento incorreta'
 assert verifica(demais_elementos, '4347885d167edadb32ddf1ecb92c798b6ee7026b6e102be1b57e2622'), 'demais_elementos incorreta'
@@ -150,6 +150,13 @@ que voce fez nas variaveis acima:
     [3, 2, 1]
 '''
 def inverte_lista(lista):
+    if len(lista) <=1:
+        return lista
+    primeiro_elemento = lista[0]
+    demais_elementos = lista[1:]
+    demais_invertidos = inverte_lista(demais_elementos)
+    lista_final = demais_invertidos + (primeiro_elemento)
+    return lista_final
     pass
 
 # Bloco 1: casos base.
