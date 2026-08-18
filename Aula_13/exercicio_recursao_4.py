@@ -239,17 +239,15 @@ ate n = 25.
     5
 '''
 
-respostas = {0:0, 1:1}
+respostas = {0: 0, 1: 1}
 
 def fibonacci(n):
-    if n in respostas.keys():
-        return respostas[n]
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
 
-    soma_a = fibonacci(n-1)
-    soma_b = fibonacci(n-2)
-    respostas[n] = soma_a + soma_b
-    return soma_a + soma_b
-    pass
 
 # Bloco 1: casos base.
 assert fibonacci(0) == 0, 'fibonacci(0) (caso base)'
@@ -311,18 +309,18 @@ Considere `numero_para_soma_digitos` = 123.
 
 1) Qual o ULTIMO digito? (use uma EXPRESSAO: `numero_para_soma_digitos % 10`)
 '''
-ultimo_digito = 'coloque o valor aqui'
+ultimo_digito = numero_para_soma_digitos % 10
 
 '''
 2) Qual o NUMERO SEM O ULTIMO digito? (use `numero_para_soma_digitos // 10`)
 '''
-numero_sem_ultimo = 'coloque o valor aqui'
+numero_sem_ultimo = numero_para_soma_digitos // 10
 
 '''
 3) Qual a `soma_digitos` do numero sem o ultimo digito (12)?
    (calcule a mao: 1 + 2 -- estamos imaginando que terceirizamos esse problema)
 '''
-soma_digitos_dos_demais = 'coloque o valor aqui'
+soma_digitos_dos_demais = 3
 
 '''
 4) Junte: a soma total dos digitos eh o ultimo digito mais a soma
@@ -330,7 +328,7 @@ soma_digitos_dos_demais = 'coloque o valor aqui'
 
        ultimo_digito + soma_digitos_dos_demais
 '''
-soma_digitos_total = 'coloque o valor aqui'
+soma_digitos_total = ultimo_digito + soma_digitos_dos_demais
 
 assert verifica(ultimo_digito, '4cfc3a1811fe40afa401b25ef7fa0379f1f7c1930a04f8755d678474'), 'ultimo_digito incorreta'
 assert verifica(numero_sem_ultimo, '3c794f0c67bd561ce841fc6a5999bf0df298a0f0ae3487efda9d0ef4'), 'numero_sem_ultimo incorreta'
@@ -354,7 +352,11 @@ DICA: caso base — se n < 10, retorna n. Terceirizacao — retorna
     >>> soma_digitos(9999)
     36
 '''
+
 def soma_digitos(n):
+    if n == 0:
+        return 0
+    return (n%10) + soma_digitos(n // 10)
     pass
 
 # Bloco 1: caso base.
