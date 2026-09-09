@@ -101,6 +101,8 @@ proprio `curtidas` que recebeu.
     {'ana': [], 'breno': []}
 '''
 def cadastra(curtidas, pessoa):
+    if pessoa not in curtidas.keys():
+        curtidas[pessoa] = []
     pass
 
 
@@ -121,6 +123,8 @@ Cuidado com as duas armadilhas:
     {'ana': ['breno'], 'breno': []}
 '''
 def curte(curtidas, quem, alvo):
+    if alvo not in curtidas[quem]:
+        curtidas[quem].append(alvo)
     pass
 
 
@@ -149,6 +153,10 @@ curtiram - ou seja, se a seta existe nos DOIS sentidos.
     False
 '''
 def eh_match(curtidas, a, b):
+    if b in curtidas[a] and a in curtidas[b]:
+        return True
+    else:
+        return False
     pass
 
 
@@ -173,6 +181,11 @@ aparecem na lista da pessoa.
     ['breno', 'duda']
 '''
 def matches(curtidas, pessoa):
+    resposta = []
+    for outro in curtidas[pessoa]:
+        if eh_match(curtidas, pessoa, outro):
+            resposta.append(outro)
+    return resposta
     pass
 
 
@@ -203,7 +216,12 @@ grafos DIRIGIDOS. Num grafo não dirigido, grau de entrada e de saída é a mesm
     >>> pretendentes(curtidas_exemplo, 'ana')
     ['caio']
 '''
-def pretendentes(curtidas, pessoa):
+def pretendentes(curtidas, pessoa1):
+    resposta = []
+    for pessoa2 in curtidas.keys():
+        if pessoa1 in curtidas[pessoa2] and not eh_match(curtidas,pessoa1,pessoa2):
+            resposta.append(pessoa2)
+    return resposta
     pass
 
 
