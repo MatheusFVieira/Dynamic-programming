@@ -178,8 +178,8 @@ Execute:
 Como ficam a lista e o proximo? Responda a lista, em forma de lista, na
 variavel fila1, e o proximo na variavel proximo1.
 '''
-fila1 = 'coloque o valor aqui'
-proximo1 = 'coloque o valor aqui'
+fila1 = [3,4,1,2]
+proximo1 = 0
 
 assert verifica(fila1, 'c075a25eb0397123b4e117fdd66afac421ddd2850684763be50c0941', ordem_importa=True, nome_questao='fila1'), 'fila1 incorreta'
 assert verifica(proximo1, 'b5258f189284587bd7c60ee12d8c3a7944e77758a49aae1f9b473e52', nome_questao='proximo1'), 'proximo1 incorreto'
@@ -201,8 +201,8 @@ Execute:
 Como ficam a lista e o proximo? Responda a lista, em forma de lista, na
 variavel fila2, e o proximo na variavel proximo2.
 '''
-fila2 = 'coloque o valor aqui'
-proximo2 = 'coloque o valor aqui'
+fila2 = [3, 4, 1, 2]
+proximo2 = 2
 
 assert verifica(fila2, '8a94b78f9030e6475ca315f110cb070e5e25942046d79e1ca3dd233e', ordem_importa=True, nome_questao='fila2'), 'fila2 incorreta - lembre que retirar nao apaga ninguem da lista, so anda o proximo'
 assert verifica(proximo2, 'f1e8dbdf153f8d7c3d59d34710231c522d6f72cabf6c0fb418554f32', nome_questao='proximo2'), 'proximo2 incorreto'
@@ -226,8 +226,8 @@ Execute:
 Como ficam a lista e o proximo? Responda a lista, em forma de lista, na
 variavel fila3, e o proximo na variavel proximo3.
 '''
-fila3 = 'coloque o valor aqui'
-proximo3 = 'coloque o valor aqui'
+fila3 = [3, 4, 1, 2, 7]
+proximo3 = 3
 
 assert verifica(fila3, 'ba600c9f29eebf9fe2c60a07552f903975234072e25100fa7b14cc7a', ordem_importa=True, nome_questao='fila3'), 'fila3 incorreta - lembre que retirar nao apaga ninguem da lista, so anda o proximo'
 assert verifica(proximo3, 'fef6ef6ab46ba2ef9716998af600af5bb10210cbb93819ebebeefb80', nome_questao='proximo3'), 'proximo3 incorreto'
@@ -261,6 +261,7 @@ estao na fila.
     2
 '''
 def tamanho(fila, proximo):
+    return len(fila) - proximo
     pass
 
 
@@ -308,6 +309,7 @@ frente.
     5
 '''
 def primeiro(fila, proximo):
+    return fila[proximo]
     pass
 
 
@@ -359,6 +361,8 @@ fila e coloca de novo no fim. Devolve o novo proximo.
     [2, 3, 1]
 '''
 def vira_1(fila, proximo):
+    fila.append(fila[proximo])
+    return proximo + 1
     pass
 
 
@@ -400,7 +404,12 @@ volta seguinte gira a mesma pessoa de novo.
 O n pode ser maior do que o numero de pessoas na fila - a roda so da mais
 de uma volta. E o n pode ser 0: ai nada gira.
 '''
-def vira_n(fila, proximo, n):
+def vira_n(fila, proximo, n): 
+    i = 0 
+    while i < n: 
+        proximo = vira_1(fila, proximo) 
+        i += 1 
+    return proximo
     pass
 
 
@@ -447,6 +456,12 @@ Repare na ultima linha: quem saiu continua na lista, logo antes do
 proximo. Nada sai da lista - so o indice anda.
 '''
 def vira_n_sai_1(fila, proximo, n):
+    i = 0 
+    while i < n: 
+        proximo = vira_1(fila, proximo) 
+        i += 1 
+    proximo += 1
+    return proximo
     pass
 
 
